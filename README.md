@@ -1,3 +1,3 @@
 # grpc-example
 
-My gRPC experiments.
+My gRPC exercise.
