@@ -1,0 +1,26 @@
+
+syntax = "proto3";
+
+option go_package = "github.com/ermanimer/grpc-example/proto/message";
+
+import "google/protobuf/empty.proto";
+
+package proto;
+
+message Message {
+    string sender = 1;
+    string body = 2;
+}
+
+message SendMessageRequest {
+    Message message = 1;
+}
+
+message ReceiveMessagesResponse {
+    Message message = 1;
+}
+
+service MessageService {
+    rpc SendMessage(SendMessageRequest) returns (google.protobuf.Empty) {}
+    rpc ReceiveMessages(google.protobuf.Empty) returns (stream ReceiveMessagesResponse) {}
+}
